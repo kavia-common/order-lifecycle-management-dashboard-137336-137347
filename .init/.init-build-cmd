@@ -1,0 +1,4 @@
+{
+    "command": "npm install && npx tsc --noEmit && npm test -- --ci",
+    "working_directory": "/home/kavia/workspace/code-generation/order-lifecycle-management-dashboard-137336-137347/order_processing_frontend"
+}
