@@ -1,104 +1,96 @@
-/* CSS Variables for Theme Management */
+/* Ocean Professional Theme Base */
 :root {
-  /* Light theme colors */
-  --bg-primary: #ffffff;
-  --bg-secondary: #f8f9fa;
-  --text-primary: #282c34;
-  --text-secondary: #61dafb;
-  --border-color: #e9ecef;
-  --button-bg: #007bff;
-  --button-text: #ffffff;
+  --bg-primary: #f9fafb;         /* background */
+  --bg-secondary: #ffffff;       /* surface */
+  --text-primary: #111827;       /* text */
+  --text-secondary: #6B7280;
+  --border-color: rgba(17,24,39,0.08);
+
+  --brand-primary: #2563EB;      /* blue - created */
+  --brand-amber: #F59E0B;        /* amber - delivered */
+  --brand-error: #EF4444;
+
+  --button-bg: #111827;
+  --button-text: #F9FAFB;
 }
 
 [data-theme="dark"] {
-  /* Dark theme colors */
-  --bg-primary: #1a1a1a;
-  --bg-secondary: #282c34;
-  --text-primary: #ffffff;
-  --text-secondary: #61dafb;
-  --border-color: #404040;
-  --button-bg: #0056b3;
-  --button-text: #ffffff;
+  --bg-primary: #0b1220;
+  --bg-secondary: #0f172a;
+  --text-primary: #e5e7eb;
+  --text-secondary: #9ca3af;
+  --border-color: rgba(255,255,255,0.08);
+
+  --button-bg: #e5e7eb;
+  --button-text: #0b1220;
+}
+
+* { box-sizing: border-box; }
+
+body, #root, .App {
+  min-height: 100vh;
 }
 
 .App {
-  text-align: center;
+  text-align: left;
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  min-height: 100vh;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: var(--bg-secondary);
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: var(--text-primary);
-  transition: background-color 0.3s ease;
-  position: relative;
-}
-
-.App-link {
-  color: var(--text-secondary);
-  transition: color 0.3s ease;
-}
-
+/* Theme toggle */
 .theme-toggle {
-  position: absolute;
-  top: 20px;
-  right: 20px;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 10px 14px;
   background-color: var(--button-bg);
   color: var(--button-text);
-  border: none;
-  border-radius: 8px;
-  padding: 10px 20px;
-  font-size: 14px;
-  font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-weight: 600;
+  box-shadow: 0 6px 20px rgba(2,8,23,0.12), 0 2px 6px rgba(2,8,23,0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
 }
 
 .theme-toggle:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-  opacity: 0.9;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(2,8,23,0.16), 0 3px 8px rgba(2,8,23,0.10);
+  opacity: 0.95;
 }
 
 .theme-toggle:active {
   transform: translateY(0);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Utility */
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
 }
 
-/* Responsive design for mobile */
-@media (max-width: 768px) {
-  .theme-toggle {
-    top: 10px;
-    right: 10px;
-    padding: 8px 16px;
-    font-size: 12px;
-  }
+.table th, .table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 14px;
+}
+
+.table th {
+  background: #F3F4F6;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.table td {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+/* Rounded corners for table header */
+.table thead th:first-child { border-top-left-radius: 12px; }
+.table thead th:last-child { border-top-right-radius: 12px; }
+
+/* Small helper text */
+.muted {
+  color: var(--text-secondary);
+  font-size: 12px;
 }
